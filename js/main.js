@@ -403,7 +403,7 @@ qsa('a[href^="#"]').forEach(a => {
   if (!form) return;
 
   /* ── Backend API endpoint ── */
-  const API_URL = 'http://localhost:5000/api/contact';
+  const API_URL = 'https://portfolio-gnoz.onrender.com//api/contact';
 
   /* ── Guard against duplicate/concurrent submissions ── */
   let isSubmitting = false;
