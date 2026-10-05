@@ -13,12 +13,14 @@
  *   - Delegate email delivery to emailService.js
  *   - Return clear JSON responses; never leak SMTP details
  */
+import 'dotenv/config'
+console.log("SMTP_HOST =", process.env.SMTP_HOST);
+console.log("SMTP_PORT =", process.env.SMTP_PORT);
+console.log("SMTP_EMAIL =", process.env.SMTP_EMAIL);
 
-require('dotenv').config();
-
-const express    = require('express');
-const cors       = require('cors');
-const { sendContactNotification, sendVisitorConfirmation } = require('./emailService');
+import express, { json } from 'express';
+import cors from 'cors';
+import { sendContactNotification, sendVisitorConfirmation } from './emailService.js';
 
 /* ── Validate required environment variables on startup ─────────────────────── */
 const REQUIRED_ENV = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_EMAIL', 'SMTP_PASSWORD'];
